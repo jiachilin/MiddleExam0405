@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JiaChiLin</title>
+    <style>
+        
+
+        body {
+            width: 100%;
+
+            height: 720px;
+
+            margin: 0;
+
+            padding: 0;
+
+            position: relative;
+
+        }
+
+        .container {
+            position: absolute;
+            top: 200px;
+            left: 300px;
+            transform: translate(-50%, -50%);
+        }
+
+        .progress-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .progress-list li {
+            margin-bottom: 2px;
+            
+        }
+
+        .bar {
+            width: 200px;
+            height: 20px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+
+        .loading {
+            margin-top: 25px;
+            height: 20px;
+            width: 0;
+            background-color: rgba(199, 108, 69, 0.42);
+
+            
+            top: -20;
+            left: 0;
+            
+        }
+
+
+        .program_name {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .prpc {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        body::before {
+            content: "";
+            background-image: url('./image/1.png');
+
+            background-size: contain;
+
+            background-position: center;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+
+        }
+
+
+        .header {
+            width: 100%;
+
+            height: 50px;
+
+            background-color: #E8E8D0;
+
+            color: #000;
+
+            text-align: center;
+
+            line-height: 50px;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            z-index: 1000;
+
+            font-family: "標楷體", "STKaiti", "KaiTi", cursive;
+
+        }
+
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+
+            align-items: center;
+
+            height: 100%;
+        }
+
+        .nav-content a {
+            text-decoration: none;
+            color: #000;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+
+            flex-grow: 1;
+
+            flex-basis: 0;
+
+            text-align: center;
+
+        }
+
+        .nav-content a:hover {
+            background-color: #C2C287;
+
+        }
+
+
+        .left-space {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+
+
+        .phone {
+            width: 85px;
+
+            height: 85px;
+
+            position: absolute;
+            bottom: 88px;
+            left: 261px;
+            border-radius: 25px;
+        }
+
+        .ig {
+            width: 85px;
+
+            height: 85px;
+
+            position: absolute;
+            bottom: 88px;
+            left: 383.55px;
+            border-radius: 25px;
+        }
+
+        .fb {
+            width: 85px;
+
+            height: 85px;
+
+            position: absolute;
+            bottom: 88px;
+            left: 507px;
+            border-radius: 25px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="progress-list">
+            <li>
+                <div class="bar">
+                    <div class="program_name">HTML/CSS</div>
+                    <span class="prpc">50%</span>
+                </div>
+                <div class="loading" id="pr1"></div>
+            </li>
+            <li>
+                <div class="bar">
+                    <div class="program_name">JAVA/JSP</div>
+                    <span class="prpc">50%</span>
+                </div>
+                <div class="loading" id="pr2"></div>
+            </li>
+            <li>
+                <div class="bar">
+                    <div class="program_name">MySQL</div>
+                    <span class="prpc">70%</span>
+                </div>
+                <div class="loading" id="pr4"></div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+       
+        var progressBar = document.querySelectorAll('.loading');
+
+      
+        progressBar.forEach(function (bar) {
+            var width = 1;
+            var interval = setInterval(frame, 10);
+
+            function frame() {
+                if (width >= parseInt(bar.previousElementSibling.querySelector('.prpc').textContent)) {
+                    clearInterval(interval);
+                } else {
+                    width++;
+                    bar.style.width = width + '%';
+                }
+            }
+        });
+    </script>
+    <div class="header">
+
+        <nav class="nav">
+            <div class="nav-content">
+                <a href="index.html" class="active">個人資訊</a>
+            </div>
+            <div class="nav-content">
+                <a href="./2.html">書法進修</a>
+            </div>
+            <div class="nav-content">
+                <a href="./3.html">鋼琴自學</a>
+            </div>
+            <div class="nav-content">
+                <a href="./4.html">班際競賽</a>
+            </div>
+            <div class="nav-content">
+                <a href="./5.html">志工服務</a>
+            </div>
+            <div class="nav-content">
+                <a href="./6.html">多元學習</a>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="left-space">
+        <a href="https://line.me/ti/g/ZYp8obT1m2" target="_blank"><img src="./image/phone.jpg" alt="Phone"
+                class="phone"></a>
+        <a href="https://www.instagram.com/linnc_?igsh=NXVycHVmaGVqbGs3&utm_source=qr" target="_blank"><img
+                src="./image/ig.jpg" alt="Instagram" class="ig"></a>
+        <a href="https://www.facebook.com/lin.nicole.756" target="_blank"><img src="./image/fb.jpg" alt="Facebook"
+                class="fb"></a>
+    </div>
+
+
+</body>
+
+</html>
